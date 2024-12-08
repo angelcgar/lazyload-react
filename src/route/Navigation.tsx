@@ -18,7 +18,7 @@ export const Navigation = () => {
 			<BrowserRouter>
 				<div className="main-layout">
 					<nav>
-						<LogoReact className="logo" />
+						<LogoReact className="logo-react" />
 						<ul>
 							{routes.map(({ to, name }) => (
 								<li key={to}>
