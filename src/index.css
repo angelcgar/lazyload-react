@@ -1,3 +1,8 @@
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 html,
 body {
   margin: 0;
@@ -25,6 +30,7 @@ nav {
   height: 100vh;
   margin-right: 15px;
   overflow-y: scroll;
+  /* overflow: hidden; */
   text-align: center;
   width: 250px;
 }
@@ -50,4 +56,8 @@ nav li a {
 .nav-active {
   color: grey;
   transition: all 0.3s ease-out;
+}
+
+p {
+  color: red;
 }

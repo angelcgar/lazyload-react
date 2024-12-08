@@ -1,7 +1,10 @@
+import { Navigation } from './route/Navigation';
+import './index.css';
+
 function App() {
 	return (
 		<>
-			<h1>App.tsx</h1>
+			<Navigation />
 		</>
 	);
 }
