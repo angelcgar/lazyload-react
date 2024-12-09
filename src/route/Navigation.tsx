@@ -1,47 +1,51 @@
-import { Suspense } from 'react';
-
 import {
-	BrowserRouter,
-	Navigate,
-	NavLink,
+	BrowserRouter as Router,
+	Switch,
 	Route,
-	Routes,
+	NavLink,
 } from 'react-router-dom';
 
 import { LogoReact } from '../assets/Logos';
 
-import { routes } from './route';
-
 export const Navigation = () => {
 	return (
-		<Suspense>
-			<BrowserRouter>
-				<div className="main-layout">
-					<nav>
-						<LogoReact className="logo-react" />
-						<ul>
-							{routes.map(({ to, name }) => (
-								<li key={to}>
-									<NavLink
-										to={to}
-										className={({ isActive }) => (isActive ? 'nav-active' : '')}
-									>
-										{name}
-									</NavLink>
-								</li>
-							))}
-						</ul>
-					</nav>
+		<Router>
+			<div className="main-layout">
+				<nav>
+					<LogoReact className="logo-react" />
+					<ul>
+						<li>
+							<NavLink to="/" activeClassName="nav-active" exact>
+								Home
+							</NavLink>
+						</li>
+						<li>
+							<NavLink to="/about" activeClassName="nav-active" exact>
+								About
+							</NavLink>
+						</li>
+						<li>
+							<NavLink to="/users" activeClassName="nav-active" exact>
+								Users
+							</NavLink>
+						</li>
+					</ul>
+				</nav>
 
-					<Routes>
-						{routes.map(({ Component, path }) => (
-							<Route key={path} path={path} element={<Component />} />
-						))}
-
-						<Route path="/*" element={<Navigate to={routes[0].to} replace />} />
-					</Routes>
-				</div>
-			</BrowserRouter>
-		</Suspense>
+				{/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+				<Switch>
+					<Route path="/about">
+						<h1>About</h1>
+					</Route>
+					<Route path="/users">
+						<h1>Users</h1>
+					</Route>
+					<Route path="/">
+						<h1>Home</h1>
+					</Route>
+				</Switch>
+			</div>
+		</Router>
 	);
 };
