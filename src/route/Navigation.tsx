@@ -1,55 +1,51 @@
 import {
-	BrowserRouter,
-	Navigate,
-	NavLink,
+	BrowserRouter as Router,
+	Switch,
 	Route,
-	Routes,
+	NavLink,
 } from 'react-router-dom';
 
-import { LogosVite } from '../assets/Logos';
+import { LogoReact } from '../assets/Logos';
 
 export const Navigation = () => {
 	return (
-		<BrowserRouter>
+		<Router>
 			<div className="main-layout">
 				<nav>
-					<LogosVite />
+					{<LogoReact className="logo-react" />}
 					<ul>
 						<li>
-							<NavLink
-								to={'/home'}
-								className={({ isActive }) => (isActive ? 'nav-active' : '')}
-							>
+							<NavLink to="/" activeClassName="nav-active" exact>
 								Home
 							</NavLink>
 						</li>
 						<li>
-							<NavLink
-								to={'/about'}
-								className={({ isActive }) => (isActive ? 'nav-active' : '')}
-							>
-								AboutHome
+							<NavLink to="/about" activeClassName="nav-active" exact>
+								About
 							</NavLink>
 						</li>
 						<li>
-							<NavLink
-								to={'/users'}
-								className={({ isActive }) => (isActive ? 'nav-active' : '')}
-							>
+							<NavLink to="/users" activeClassName="nav-active" exact>
 								Users
 							</NavLink>
 						</li>
 					</ul>
 				</nav>
 
-				<Routes>
-					<Route path="about" element={<h1>about</h1>} />
-					<Route path="users" element={<h1>users</h1>} />
-					<Route path="/home" element={<h1>unicio</h1>} />
-
-					<Route path="/*" element={<Navigate to={'/home'} replace />} />
-				</Routes>
+				{/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+				<Switch>
+					<Route path="/about">
+						<h1>About</h1>
+					</Route>
+					<Route path="/users">
+						<h1>Users</h1>
+					</Route>
+					<Route path="/">
+						<h1>Home</h1>
+					</Route>
+				</Switch>
 			</div>
-		</BrowserRouter>
+		</Router>
 	);
 };

@@ -34,6 +34,7 @@ nav {
   text-align: center;
   width: 250px;
 }
+
 nav ul {
   align-items: center;
   display: flex;
@@ -60,4 +61,8 @@ nav li a {
 
 p {
   color: red;
+}
+
+.logo-react {
+  margin-top: 3px;
 }
