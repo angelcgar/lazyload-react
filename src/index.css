@@ -27,10 +27,10 @@ code {
 
 nav {
   background-color: #363a45;
+  padding-top: 10px;
   height: 100vh;
   margin-right: 15px;
   overflow-y: scroll;
-  /* overflow: hidden; */
   text-align: center;
   width: 250px;
 }
@@ -64,5 +64,6 @@ p {
 }
 
 .logo-react {
-  margin-top: 3px;
+  width: 50px;
+  height: auto;
 }
