@@ -7,7 +7,6 @@ import { ProductTitle } from './ProductTitle';
 export { ProductButtons } from './ProductButtons';
 export { ProductImage } from './ProductImage';
 export { ProductTitle } from './ProductTitle';
-// export { ProductCard } from './ProductCard';
 
 const ProductCard: ProductCardMOCProps = Object.assign(ProductCardMoc, {
 	Title: ProductTitle,
